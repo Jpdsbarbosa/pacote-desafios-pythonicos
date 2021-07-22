@@ -8,7 +8,6 @@ ao invés do contador.
 Exemplo: donuts(5) retorna 'Number of donuts: 5'
 e donuts(23) retorna 'Number of donuts: many'
 """
-
 def donuts(count):
     # +++ SUA SOLUÇÃO +++
     return f"Number of donuts: {'many' if count > 9 else count}"
