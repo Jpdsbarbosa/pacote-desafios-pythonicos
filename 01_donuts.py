@@ -11,10 +11,7 @@ e donuts(23) retorna 'Number of donuts: many'
 
 def donuts(count):
     # +++ SUA SOLUÇÃO +++
-    if (count < 10):
-        return f'Number of donuts: {count}'
-    else:
-        return 'Number of donuts: many'
+    return f"Number of donuts: {'many' if count > 9 else count}"
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
