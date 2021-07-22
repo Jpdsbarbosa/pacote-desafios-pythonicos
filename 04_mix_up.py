@@ -19,7 +19,7 @@ def mix_up(a, b):
     first = b[0:2] + a[2:]
     second = a[0:2] + b[2:]
 
-    return f"{first + ' ' + second if (len(a) and len(b)) > 2 else ''}"
+    return f"{' '.join((b[:2] + a[2:],a[:2] + b[2:])) if (len(a) and len(b)) >= 2 else ''}"
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
