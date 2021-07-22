@@ -12,8 +12,24 @@ a-frente + b-frente + a-trás + b-trás
 """
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    a = str(a)
+    b = str(b)
 
+    tam_a = len(a)
+    tam_b = len(b)
+
+    med_a = int(tam_a/2)
+    med_b = int(tam_b/2)
+
+    if (tam_a % 2 == 0 and tam_b % 2 == 0):
+        return f"{a[:med_a] + b[:med_b] + a[med_a:] + b[med_b:]}"
+    elif(tam_a % 2 != 0 and tam_b % 2 != 0):
+        return f"{a[:med_a+1] + b[:med_b+1] + a[med_a+1:] + b[med_b+1:]}"
+    elif(tam_a % 2 == 0 and tam_b % 2 != 0):
+        return f"{a[:med_a] + b[:med_b+1] + a[med_a:] + b[med_b+1:]}"
+    elif(tam_a % 2 != 0 and tam_b % 2 == 0):
+        return f"{a[:med_a+1] + b[:med_b] + a[med_a+1:] + b[med_b:]}"
+    return ''
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
@@ -39,3 +55,11 @@ if __name__ == '__main__':
     test(front_back, ('abcd', 'xy'), 'abxcdy')
     test(front_back, ('abcde', 'xyz'), 'abcxydez')
     test(front_back, ('Kitten', 'Donut'), 'KitDontenut')
+    test(front_back, ('', 'Banana'), 'Banana')
+    test(front_back, ('maça', ''), 'maça')
+    test(front_back, ('', ''), '')
+    test(front_back, (1, 2), '12')
+    test(front_back, (12, 24), '1224')
+    test(front_back, (123, 24), '12234')
+    test(front_back, (12, 369), '13629')
+    test(front_back, ('12'+'ab', 369), '1236ab9')
