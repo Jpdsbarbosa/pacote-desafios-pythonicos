@@ -14,8 +14,11 @@ Assuma que a e b tem tamanho 2 ou maior.
 
 def mix_up(a, b):
     # +++ SUA SOLUÇÃO +++
+    a = str(a)
+    b = str(b)
     first = b[0:2] + a[2:]
     second = a[0:2] + b[2:]
+
     return f"{first + ' ' + second if (len(a) and len(b)) > 2 else ''}"
 
 
@@ -44,3 +47,8 @@ if __name__ == '__main__':
     test(mix_up, ('dog', 'dinner'), 'dig donner')
     test(mix_up, ('gnash', 'sport'), 'spash gnort')
     test(mix_up, ('pezzy', 'firm'), 'fizzy perm')
+    test(mix_up, ('', ''), '')
+    test(mix_up, ('a', 'b'), '')
+    test(mix_up, ('a', ''), '')
+    test(mix_up, ('', 'b'), '')
+    test(mix_up, (123, 321), '323 121')
