@@ -9,8 +9,7 @@ for menor que 2, retorne uma string vazia.
 
 def both_ends(s):
     # +++ SUA SOLUÇÃO +++
-    string = s[0:2] + s[-2:]
-    return f"{string if len(s) >= 2 else ''}"
+    return f"{s[0:2] + s[-2:] if len(s) >= 2 else ''}"
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
