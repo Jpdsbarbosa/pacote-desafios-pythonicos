@@ -52,10 +52,36 @@ e conferindo cada etapa do seu progresso.
 """
 
 import sys
-
+import collections
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
+
+def cria_lista(filename):
+    arq = open(filename)
+    lista1 = []
+    for i in arq.readlines():
+        lista1.extend(i.split())
+    lista2 = minusculas(lista1)
+    lista2.sort()
+    arq.close()
+    return lista2
+
+
+def minusculas(lista):
+    return [item.lower() for item in lista]
+
+
+def print_words(filename):
+    dict = collections.Counter(cria_lista(filename))
+    for chave, valor in dict.items():
+        print(chave, valor)
+
+
+def print_top(filename):
+    tdict = collections.Counter(cria_lista(filename)).most_common(20)
+    for chave, valor in tdict:
+        print(chave, valor)
 
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
@@ -68,9 +94,9 @@ def main():
     option = sys.argv[1]
     filename = sys.argv[2]
     if option == '--count':
-        print_words(filename)
+        print(print_words(filename))
     elif option == '--topcount':
-        print_top(filename)
+        print(print_top(filename))
     else:
         print('unknown option: ' + option)
         sys.exit(1)
